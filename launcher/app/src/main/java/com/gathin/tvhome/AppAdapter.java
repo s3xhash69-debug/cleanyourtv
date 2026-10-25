@@ -481,13 +481,12 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             h.label.setVisibility(uniformTiles ? View.GONE : View.VISIBLE);
         }
         h.card.setOnClickListener(v -> {
-    if ("com.android.tv.settings".equals(e.packageName) || "com.android.settings".equals(e.packageName)) {
+    if ("com.android.tv.settings".equals(e.pkg) || "com.android.settings".equals(e.pkg)) {
         ctx.startActivity(new Intent(ctx, LauncherSettingsActivity.class));
-       } 
-    else {
+    } else {
         launch(e);
-     }
-    });
+    }
+});
         h.card.setOnLongClickListener(v -> {
             if (tileMenu) {
                 int pos = h.getBindingAdapterPosition();
