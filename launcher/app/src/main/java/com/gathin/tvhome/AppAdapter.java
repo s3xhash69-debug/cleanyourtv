@@ -487,13 +487,14 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         launch(e);
     }
 });
-        h.card.setOnLongClickListener(v -> {
-           int pos = h.getBindingAdapterPosition();
-           if (pos != RecyclerView.NO_POSITION) {
-        listener.onTileLongPress(pos, v);
+                h.card.setOnLongClickListener(v -> {
+            int pos = h.getBindingAdapterPosition();
+            if (pos != RecyclerView.NO_POSITION) {
+                listener.onTileLongPress(pos, v);
+            }
+            return true;
+        });
     }
-      return true;
-});
             Intent i = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + e.pkg));
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             try {
