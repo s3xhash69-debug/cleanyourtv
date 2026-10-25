@@ -534,17 +534,22 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    @Override
+        @Override
     public int getItemCount() {
-        return items.size() + (showLibrary ? 1 : 0);
+        return items.size() + 1;
     }
 
     int appCount() { return items.size(); }
 
-    boolean isLibraryAt(int position) { return showLibrary && position == items.size(); }
+    boolean isLibraryAt(int position) { 
+        return position == items.size(); 
+    }
 
-    @Override public int getItemViewType(int position) { return isLibraryAt(position) ? 1 : 0; }
-
+    @Override 
+    public int getItemViewType(int position) { 
+        return isLibraryAt(position) ? 1 : 0; 
+    }
+    
     boolean containsPackage(String pkg) {
         for (Entry entry : items) if (entry.pkg.equals(pkg)) return true;
         return false;
