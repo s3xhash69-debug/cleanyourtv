@@ -2593,7 +2593,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
                 if (caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) wifi = true;
             }
             if (!online) {
-                text = getString(R.string.offline);
+                text = getString(R.string.wifi);
                 vpn = false;
             } else if (ethernet) {
                 text = getString(R.string.ethernet);
