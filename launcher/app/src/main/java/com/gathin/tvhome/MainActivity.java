@@ -2557,9 +2557,9 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
     private void updateWifiLabel() {
         String text = getString(R.string.wifi);
         boolean vpn = false, online = false, validated = false;
-        android.net.wifi.WifiManager wm = (android.net.wifi.WifiManager) getApplicationContext().getSystemService(android.content.Context.WIFI_SERVICE);
-        if (wm != null && wm.isWifiEnabled()) {
-            android.net.wifi.WifiInfo info = wm.getConnectionInfo();
+        android.net.wifi.WifiManager wifiMgr = (android.net.wifi.WifiManager) getApplicationContext().getSystemService(android.content.Context.WIFI_SERVICE);
+        if (wifiMgr != null && wifiMgr.isWifiEnabled()) {
+            android.net.wifi.WifiInfo info = wifiMgr.getConnectionInfo();
             if (info != null && info.getNetworkId() != -1) {
                 String ssid = info.getSSID();
                 if (ssid != null && !ssid.isEmpty() && !"<unknown ssid>".equals(ssid)) {
@@ -2569,8 +2569,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
                     text = ssid;
                 }
             }
-        }
-        
+        } 
         int icon = R.drawable.ic_wifi;
         // The diya's flame: 0 is out (offline), 1 to 4 follow the Wi-Fi signal, Ethernet burns steady at 4.
         int flame = 0;
